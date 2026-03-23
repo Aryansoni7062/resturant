@@ -1,5 +1,6 @@
 package com.FoodApp.food.Services.impl;
 
+import com.FoodApp.food.Exceptation.UserNotFound;
 import com.FoodApp.food.Services.UserService;
 import com.FoodApp.food.dto.UserDto;
 import com.FoodApp.food.entity.Role;
@@ -9,6 +10,7 @@ import com.FoodApp.food.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.print.attribute.UnmodifiableSetException;
 import java.util.List;
 import java.util.UUID;
 
@@ -62,8 +64,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUserbyId(String userId) {
+        System.out.println("Service is working");
         User users=userRepo.findById(userId)
-                .orElseThrow(()-> new RuntimeException("user not found"));
+                .orElseThrow(()-> new UserNotFound("user not found"));
 
         return ConvertUserToUserDto(users);
     }

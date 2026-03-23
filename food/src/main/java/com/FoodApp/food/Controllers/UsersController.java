@@ -42,7 +42,8 @@ public class UsersController {
 
     //get by id
     @GetMapping("/{userid}")
-    public ResponseEntity<UserDto> findById(@PathVariable("userId") String id){
+    public ResponseEntity<UserDto> findById(@PathVariable("userid") String id){
+        System.out.println("i am working");
         return ResponseEntity.ok(userService.getUserbyId(id));
     }
 
