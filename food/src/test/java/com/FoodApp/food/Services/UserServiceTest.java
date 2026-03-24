@@ -1,15 +1,10 @@
 package com.FoodApp.food.Services;
 
 import com.FoodApp.food.Services.impl.UserServiceImpl;
-import com.FoodApp.food.entity.Resturant;
-import com.FoodApp.food.entity.Role;
-import com.FoodApp.food.entity.RoleEntity;
-import com.FoodApp.food.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.UUID;
 @SpringBootTest
 public class UserServiceTest {
     @Autowired
