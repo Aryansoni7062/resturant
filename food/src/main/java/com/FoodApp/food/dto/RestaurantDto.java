@@ -1,12 +1,14 @@
 package com.FoodApp.food.dto;
 
 import jakarta.persistence.Lob;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalTime;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class RestaurantDto {
 
@@ -17,6 +19,6 @@ public class RestaurantDto {
     private String address;
     private LocalTime openTime;
     private LocalTime closeTime;
-    private boolean isopen=true;
+   //private boolean isopen=true;
     private String  banner;
 }

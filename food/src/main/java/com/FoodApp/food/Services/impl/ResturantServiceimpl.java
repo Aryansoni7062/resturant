@@ -2,21 +2,37 @@ package com.FoodApp.food.Services.impl;
 
 import com.FoodApp.food.Services.RestaurantService;
 import com.FoodApp.food.dto.RestaurantDto;
+import com.FoodApp.food.entity.Restaurant;
 import com.FoodApp.food.repository.RestaurantRepo;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ResturantServiceimpl implements RestaurantService {
-    @Autowired
+
+
     private RestaurantRepo restaurantRepo;
+
+    private ModelMapper modelMapper;
+    public ResturantServiceimpl(RestaurantRepo restaurantRepo, ModelMapper modelMapper) {
+        this.restaurantRepo = restaurantRepo;
+        this.modelMapper = modelMapper;
+    }
+
+
 
     @Override
     public RestaurantDto addrest(RestaurantDto restaurantDto) {
+        restaurantDto.setId(UUID.randomUUID().toString());
+        Restaurant restaurant=modelMapper.map(restaurantDto,Restaurant.class);
+        Restaurant saved=restaurantRepo.save(restaurant);
 
-        return null;
+
+        return modelMapper.map(saved,RestaurantDto.class);
     }
 
     @Override
