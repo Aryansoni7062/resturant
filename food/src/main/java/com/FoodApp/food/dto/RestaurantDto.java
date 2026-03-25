@@ -19,6 +19,6 @@ public class RestaurantDto {
     private String address;
     private LocalTime openTime;
     private LocalTime closeTime;
-   private boolean isopen=true;
+   //private boolean isopen=true;
     private String  banner;
 }
